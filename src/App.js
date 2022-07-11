@@ -16,7 +16,7 @@ function App() {
 
   fetch (url).then((response)  => response.json().then((data)=>{
     console.log(data);
-    setworldStats(data.world)
+    setworldStats(data.World)
 
     setCountriesStats(data.Countries)
   }))

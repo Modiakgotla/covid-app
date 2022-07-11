@@ -8,7 +8,7 @@ return (
             Country name
         </th>
         <th>
-            Active caes
+            Active Cases
         </th>
     </tr>
 

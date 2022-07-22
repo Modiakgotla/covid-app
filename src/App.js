@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import React,{useEffect,useState} from 'react';
-import WorldStats from './components/World'
+import GlobalStats from './components/global';
 import './App.css';
 import CountriesStats from './components/countriesStats';
 
@@ -8,15 +8,17 @@ import Search from './components/search';
 
 function App() {
 
-  const [worldStats, setworldStats] = useState('')
+  const [globalStats, setGlobalStats] = useState('')
   const [countiresStats, setCountriesStats] = useState([]);
   useEffect(()=>{
 
   let url = "https://api.covid19api.com/summary";
 
-  fetch (url).then((response)  => response.json().then((data)=>{
+  fetch (url)
+  .then((response)  => response.json().
+  then((data)=>{
     console.log(data);
-    setworldStats(data.World)
+    setGlobalStats(data.Global)
 
     setCountriesStats(data.Countries)
   }))
@@ -37,7 +39,7 @@ setCountriesStats(result);
   return (
     <div className="App">
 
-      <WorldStats  world={worldStats}/>
+      <GlobalStats  global={globalStats}/>
       <Search search={searchCountry}/>
       <CountriesStats countries={countiresStats}/>
     </div>
